@@ -12,6 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Dependencies:
 Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.html
 
+## What's included:
+- `em_dis.cpp` : General version of the algorithm. Allows for directed multilayer networks with disassortative graph structures (non-diagonal affinity matrices W). The weighted version still needs to be implemented.
+- `em_as.cpp` : Purely assortative version. Restricts affinity matrices to be diagonal (less memory is occupied).
+- `em_uni_dis.cpp` : Undirected version of the model: only the membership matrices `U` are considered. Less memory is occupied.
+- `em_uni_as.cpp` : Undirected and purely assortative version. Only the membership matrices `U` are considered and the affinity matrices `W` are restriceted to be diagonal.
+
+Use the version that most resembles your network, i.e. if you have an undirected network use `em_uni_dis.cpp`. If you also now that the partition is assortative then use `em_uni_as.cpp`.
 
 ## Requirements:
 Need to make a directory called `data` inside the folder where the `.cpp`  and `Makefile` are stored. Just ype from the command line, inside that folder: 
@@ -65,6 +72,7 @@ Three files will be generated: the two NxK membership matrices `U` and `V`, and 
 - `u_K4.dat`
 - `v_K4.dat`
 - `w_K4.dat`
+- `debug_K4.dat` : will be filled with "weird" behaviors in case something wrong is going on. Usually when the adjacency matrix is not entered correctly. If this file is empty than everything went fine.
 
 The first line outputs the Max Likelihood among the realizations.
 For the membership files, the subsequent lines contain L+1 columns: the first one is the node label, the follwing ones are the (not normalized) membership vectors' entries.
