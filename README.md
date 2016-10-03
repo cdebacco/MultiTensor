@@ -33,8 +33,8 @@ Type in the command line the name of the binary file (the same you used assigned
 
 # Required arguments
 
-*`-a` : Adjacency matrix file
-*`-f` : Folder where the adjacency input and output are/will be stored (inside `data` folder).
+~`-a` : Adjacency matrix file
+~`-f` : Folder where the adjacency input and output are/will be stored (inside `data` folder).
 
 # Optional arguments
 
