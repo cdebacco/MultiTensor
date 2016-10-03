@@ -19,11 +19,11 @@ LIBS and LIBS should point to the directories where you installed boost. You can
 
 Then just type from the command line:
 
-make
+'make'
 
 ## How to run run the code:
 Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
-./em -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" 
+'./em -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" '
 
 
