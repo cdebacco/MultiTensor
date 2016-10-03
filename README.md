@@ -65,6 +65,9 @@ Three files will be generated: the two NxK membership matrices `U` and `V`, and 
 - `u_K4.dat`
 - `v_K4.dat`
 - `w_K4.dat`
+
 The first line outputs the Max Likelihood among the realizations.
-For the membership files, the follwing lines have L+1 columns: the first one is the node label, the follwoing ones are the (not normalize) membership vectors' enntries.
-For the affinity matrix file, the follwong lines start with the number of the layer and then the matrix for that layer.
+For the membership files, the subsequent lines contain L+1 columns: the first one is the node label, the follwing ones are the (not normalized) membership vectors' entries.
+For the affinity matrix file, the subsequent lines start with the number of the layer and then the matrix for that layer.
+
+
