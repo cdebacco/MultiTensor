@@ -31,12 +31,12 @@ Type in the command line the name of the binary file (the same you used assigned
 
 `./em -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" `
 
-# Required arguments
+### Required arguments
 
 - `-a` : Adjacency matrix file
 - `-f` : Folder where the adjacency input and output are/will be stored (inside `data` folder).
 
-# Optional arguments
+### Optional arguments
 
 - `-E` : Output end of file where the paramters' files will be stored. Example: `-E="_abc.dat" ` output files will be `u_K4_abc.dat`,`v_K4_abc.dat`,`w_K4_abc.dat` (assuming that k=4). Default value is `-E=".dat"`.
 - `-i` : Initialization flag: if `i=0` than parametrs are randomly initialized; if `i=1` the membership vectors u and v and w are initialized form file; if `i=2` only w is initialized from file; if `i=3` only u and v are initialized from file, w instead is random.
@@ -52,3 +52,19 @@ Type in the command line the name of the binary file (the same you used assigned
 * `-y` : Decision variable for convergence. Default is 10.
 * `-z` : Seed for random real numbers.
 * `-s` : Seed for random integer numbers.
+
+## Input format.
+The multilayer adjacency matrix should be formatted as an edge list with L+3 columns:
+
+`E node1 node2 1 0 0 1`
+
+The first columns tells the algorithm that the row denotes an edge; the second and third are the source and target nodes of that edge, respectively; l+3 column tells if there is that edge in the l-th layer. In this example the edge node1 --> node2 exists in layer 1 and 4 but not in layer 2 and 3.
+
+## Output.
+Three files will be generated: the two NxK membership matrices `U` and `V`, and the KxK layer affinity matrix `W`. Supposing that K=4 and `E=".dat"` the output files will be inside `data` folder with names:
+- `u_K4.dat`
+- `v_K4.dat`
+- `w_K4.dat`
+The first line outputs the Max Likelihood among the realizations.
+For the membership files, the follwing lines have L+1 columns: the first one is the node label, the follwoing ones are the (not normalize) membership vectors' enntries.
+For the affinity matrix file, the follwong lines start with the number of the layer and then the matrix for that layer.
