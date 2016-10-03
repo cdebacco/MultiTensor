@@ -12,12 +12,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Dependencies:
 Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.html
 
-## How to run the code:
+## How to compile the code:
 Multitensor should first be complied modifing appropriately the Makefile included.
-Then just type fro the command line:
+You need to specify the file to be compiled by assigning BIN. Example: if you want to compile em.cpp then assign BIN=em .
+LIBS and LIBS should point to the directories where you installed boost. You can also arbitrarily modify the compiler's flags under CXXFLAGS.
+
+Then just type from the command line:
 
 make
 
+## How to run run the code:
+Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
+./em -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" 
 
 
