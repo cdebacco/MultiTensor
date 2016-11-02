@@ -47,14 +47,14 @@ Type in the command line the name of the binary file (the same you used assigned
 
 * `-w` : End of the file where the parameters can be initialized from, in case initialization variable is greater than 0.
 
-* `-l` : Number of layers, default is 1.
-* `-k` : Number of communities, default is 4.
+* `-l` : Number of layers, default is 4.
+* `-k` : Number of communities, default is 5.
 * `-r` : Number of different realizations, the final parameters will be the one corresponding to the realization leading to the max likelihood. Default is 1.
 * `-t` : Max iteration time. Default is 500.
 * `-e` : Convergence tolerance. Default is 0.1 .
 * `-g` : Error added when intializing parameters from file. Default is 0.1 .
 * `-o` : Flag to output adjacency matrix. Default is 0 (False).
-* `-y` : Decision variable for convergence. Default is 10.
+* `-y` : Decision variable for convergence. Default is 2.
 * `-z` : Seed for random real numbers.
 * `-A` : Flag to call the (faster) restricted assortative version (purely diagonal affinity matrix).
 * `-u` : Flag to call the undirected network, default is 0 (False).
