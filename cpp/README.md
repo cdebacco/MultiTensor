@@ -18,7 +18,7 @@ Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.h
 Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp`. If you also now that the partition is assortative then use the flag '-A 1'.
 
 ## Requirements:
-Need to make a directory called `data` inside the folder where the `.cpp`  and `Makefile` are stored. Just ype from the command line, inside that folder: 
+Need to make a directory called `data` outside the folder where the `.cpp`  and `Makefile` are stored. Just type from the command line, inside that folder: 
 * `mkdir data`
 
 ## How to compile the code:
