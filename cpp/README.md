@@ -37,8 +37,8 @@ Type in the command line the name of the binary file (the same you used assigned
 `./MultiTensor -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" `
 
 You can test the code by typing on a shell inside this folder:
-'./MultiTensor'
-This will use the '../data/adjacency.dat' file as input and L=4, K=5 as default.
+`./MultiTensor`
+This will use the `../data/adjacency.dat` file as input and L=4, K=5 as default.
 
 ### Required arguments
 
