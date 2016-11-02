@@ -1,5 +1,5 @@
 # MultiTensor
-Multilayer network tensor factorization, for community detection, link prediction and measure layer interdependence.
+C++ code for MultiTensor
 
 Copyright (c) 2016 Caterina De Bacco
 
