@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## What's included:
 - `cpp` : c++ version of the algorithm. Faster than the Python one.
 - `python` : Python version. Slower than c++.
-- `data` : Contains test adjacency files to try the code.
+- `data` : Contains sample adjacency files to test the code.
 
 ## Requirements:
 Need to make a directory called `data` outside the `cpp` and `python` folders. 
