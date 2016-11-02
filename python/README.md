@@ -27,13 +27,18 @@ Need to make a directory called `data` outside the folder where the `python` fol
 * `mkdir data`
 
 ## How to compile the code:
-The Python code does not need to be compiled (but is slower).
+The Python code does not need to be compiled (but is slower than the compiled c++ version).
 Just run it!
 
 ## How to run run the code:
 Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
 `python main.py -k=2 -l=3 -a="adjacency.dat" -E="_endfile.dat" `
+
+As an example type on the command line:
+`python main.py`
+
+It will use the sample adjacency file contained in `../data`, which is an undirected, unweighted network with `L=4` and `K=5`. 
 
 ### Required arguments
 
