@@ -43,13 +43,13 @@ Type in the command line the name of the binary file (the same you used assigned
 ### Optional arguments
 
 - `-E` : Output end of file where the paramters' files will be stored. Example: `-E="_abc.dat" ` output files will be `u_K4_abc.dat`,`v_K4_abc.dat`,`w_K4_abc.dat` (assuming that k=4). Default value is `-E=".dat"`.
-- `-i` : Initialization flag: if `i=0` than parametrs are randomly initialized; if `i=1` the membership vectors u and v and w are initialized form file; if `i=2` only w is initialized from file; if `i=3` only u and v are initialized from file, w instead is random.
+- `-i` : Initialization flag: if `i=0` than parametrs are randomly initialized; if `i=1` the membership vectors u and v and w are initialized form file; if `i=2` only w is initialized from file; if `i=3` only u and v are initialized from file, w instead is random. Default is `i=0`.
 
 * `-w` : End of the file where the parameters can be initialized from, in case initialization variable is greater than 0.
 
 * `-l` : Number of layers, default is 1.
 * `-k` : Number of communities, default is 4.
-* `-r` : Number of different realizations, the final parameters will be the one correspondinf to the realization leading to the max likelihood. Default is 1.
+* `-r` : Number of different realizations, the final parameters will be the one corresponding to the realization leading to the max likelihood. Default is 1.
 * `-t` : Max iteration time. Default is 500.
 * `-e` : Convergence tolerance. Default is 0.1 .
 * `-g` : Error added when intializing parameters from file. Default is 0.1 .
