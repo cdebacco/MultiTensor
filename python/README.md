@@ -36,6 +36,7 @@ Type in the command line the name of the binary file (the same you used assigned
 `python main.py -k=2 -l=3 -a="adjacency.dat" -E="_endfile.dat" `
 
 As an example type on the command line:
+
 `python main.py`
 
 It will use the sample adjacency file contained in `../data`, which is an undirected, unweighted network with `L=4` and `K=5`. 
