@@ -13,12 +13,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.html
 
 ## What's included:
-- `em_dis.cpp` : General version of the algorithm. Allows for directed multilayer networks with disassortative graph structures (non-diagonal affinity matrices W). The weighted version still needs to be implemented.
-- `em_as.cpp` : Purely assortative version. Restricts affinity matrices to be diagonal (less memory is occupied).
-- `em_uni_dis.cpp` : Undirected version of the model: only the membership matrices `U` are considered. Less memory is occupied.
-- `em_uni_as.cpp` : Undirected and purely assortative version. Only the membership matrices `U` are considered and the affinity matrices `W` are restriceted to be diagonal.
+- `MultiTensor.cpp` : General version of the algorithm. Considers directed and weigthed multilayer networks with any community structures (non-diagonal or restricted diagonal affinity matrices W).
 
-Use the version that most resembles your network, i.e. if you have an undirected network use `em_uni_dis.cpp`. If you also now that the partition is assortative then use `em_uni_as.cpp`.
+Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp`. If you also now that the partition is assortative then use the flag '-A 1'.
 
 ## Requirements:
 Need to make a directory called `data` inside the folder where the `.cpp`  and `Makefile` are stored. Just ype from the command line, inside that folder: 
@@ -26,8 +23,9 @@ Need to make a directory called `data` inside the folder where the `.cpp`  and `
 
 ## How to compile the code:
 Multitensor should first be complied modifing appropriately the Makefile included.
-You need to specify the file to be compiled by assigning BIN. Example: if you want to compile em.cpp then assign BIN=em .
+You need to specify the file to be compiled by assigning BIN. Example: if you want to compile MultiTensor.cpp then assign BIN=MultiTensor .
 LIBS and LIBS should point to the directories where you installed boost. You can also arbitrarily modify the compiler's flags under CXXFLAGS.
+Check the boost version you have installed and modify the LIBS flag accordingly. Default uses boost 1.58.0.
 
 Then just type from the command line:
 
@@ -36,7 +34,7 @@ Then just type from the command line:
 ## How to run run the code:
 Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
-`./em -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" `
+`./MultiTensor -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" `
 
 ### Required arguments
 
@@ -59,23 +57,24 @@ Type in the command line the name of the binary file (the same you used assigned
 * `-y` : Decision variable for convergence. Default is 10.
 * `-z` : Seed for random real numbers.
 * `-s` : Seed for random integer numbers.
+* `-A` : Flag to call the (faster) restricted assortative version (purely diagonal affinity matrix).
 
 ## Input format.
 The multilayer adjacency matrix should be formatted as an edge list with L+3 columns:
 
-`E node1 node2 1 0 0 1`
+`E node1 node2 3 0 0 1`
 
-The first columns tells the algorithm that the row denotes an edge; the second and third are the source and target nodes of that edge, respectively; l+3 column tells if there is that edge in the l-th layer. In this example the edge node1 --> node2 exists in layer 1 and 4 but not in layer 2 and 3.
+The first columns tells the algorithm that the row denotes an edge; the second and third are the source and target nodes of that edge, respectively; l+3 column tells if there is that edge in the l-th layer and the weigth (must be integer). In this example the edge node1 --> node2 exists in layer 1 with weight 3 and in layer 4 with weight 1, but not in layer 2 and 3.
 
 ## Output.
 Three files will be generated: the two NxK membership matrices `U` and `V`, and the KxK layer affinity matrix `W`. Supposing that K=4 and `E=".dat"` the output files will be inside `data` folder with names:
 - `u_K4.dat`
 - `v_K4.dat`
 - `w_K4.dat`
-- `debug_K4.dat` : will be filled with "weird" behaviors in case something wrong is going on. Usually when the adjacency matrix is not entered correctly. If this file is empty than everything went fine.
 
 The first line outputs the Max Likelihood among the realizations.
 For the membership files, the subsequent lines contain L+1 columns: the first one is the node label, the follwing ones are the (not normalized) membership vectors' entries.
 For the affinity matrix file, the subsequent lines start with the number of the layer and then the matrix for that layer.
+For the restricted assortative version only the diagonal entries of the affinity matrix are printed. The first entry of each row is the layer index.
 
 
