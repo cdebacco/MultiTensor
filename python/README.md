@@ -1,4 +1,4 @@
-# MultiTensor
+# MultiTensor: Python code
 Python version.
 Copyright (c) 2016 Caterina De Bacco
 
