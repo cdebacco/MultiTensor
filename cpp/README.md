@@ -15,7 +15,7 @@ Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.h
 ## What's included:
 - `MultiTensor.cpp` : General version of the algorithm. Considers directed and weigthed multilayer networks with any community structures (non-diagonal or restricted diagonal affinity matrices W).
 
-Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp`. If you also now that the partition is assortative then use the flag '-A 1'.
+Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp`. If you also know that the partition is assortative then use the flag '-A 1'.
 
 ## Requirements:
 Need to make a directory called `data` inside the folder where the `.cpp`  and `Makefile` are stored. Just ype from the command line, inside that folder: 
