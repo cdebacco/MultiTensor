@@ -1,5 +1,5 @@
 # MultiTensor
-C++ code for MultiTensor
+Multilayer network tensor factorization, for community detection, link prediction and measure layer interdependence.
 
 Copyright (c) 2016 Caterina De Bacco
 
@@ -15,10 +15,10 @@ Boost Graph Library: http://www.boost.org/doc/libs/1_62_0/libs/graph/doc/index.h
 ## What's included:
 - `MultiTensor.cpp` : General version of the algorithm. Considers directed and weigthed multilayer networks with any community structures (non-diagonal or restricted diagonal affinity matrices W).
 
-Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp` (needs to be developed!). If you also know that the partition is assortative then use the flag '-A 1'.
+Use the version that most resembles your network, i.e. if you have an undirected network use `MultiTensor_undirected.cpp`. If you also now that the partition is assortative then use the flag '-A 1'.
 
 ## Requirements:
-Need to make a directory called `data` outside the folder where the `.cpp`  and `Makefile` are stored. Just type from the command line, inside that folder: 
+Need to make a directory called `data` inside the folder where the `.cpp`  and `Makefile` are stored. Just ype from the command line, inside that folder: 
 * `mkdir data`
 
 ## How to compile the code:
@@ -35,10 +35,6 @@ Then just type from the command line:
 Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
 `./MultiTensor -k 2 -l 3 -a "adjacency.dat" -E "_endfile.dat" `
-
-You can test the code by typing on a shell inside this folder:
-`./MultiTensor`
-This will use the `../data/adjacency.dat` file as input and L=4, K=5 as default.
 
 ### Required arguments
 

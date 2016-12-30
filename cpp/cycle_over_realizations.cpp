@@ -75,10 +75,12 @@ void cycle_over_realizations(int N_real,double err, double inf,int initializatio
 
 }
 
-// Selects btw full and restricted (assortative) models
-void iterate(bool assortative,int N_real,double err, double inf,int initialization,int maxit, int tolerance,int decision,string file, string end_file,string w_file,vector<Graph> & A, vector<int> & u_list,vector<int> & v_list,vector< vector<double> > & u,vector< vector<double> > & v, vector< vector<double> > & u_f,vector< vector<double> > & v_f,vector< vector<double> > & u_old,vector< vector<double> > & v_old)
+
+
+// Selects btw full and restricted (Diagonal) models
+void iterate(bool Diagonal,int N_real,double err, double inf,int initialization,int maxit, int tolerance,int decision,string file, string end_file,string w_file,vector<Graph> & A, vector<int> & u_list,vector<int> & v_list,vector< vector<double> > & u,vector< vector<double> > & v, vector< vector<double> > & u_f,vector< vector<double> > & v_f,vector< vector<double> > & u_old,vector< vector<double> > & v_old)
 {
-    if(assortative){
+    if(Diagonal){
       vector< vector<double> > w(K, vector<double>(L));
       vector< vector<double> > w_old(K, vector<double>(L));
       vector< vector<double> > w_f(K, vector<double>(L));
@@ -95,3 +97,4 @@ void iterate(bool assortative,int N_real,double err, double inf,int initializati
 
     }
  } 
+
