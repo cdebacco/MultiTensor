@@ -76,7 +76,9 @@ def print_graph_stat(A):
 	L=len(A);N=A[0].number_of_nodes()
 	print "N=",N
 	for l in range(L):
-		print 'E[',l,']=',A[l].number_of_edges()," density=",100*float(A[l].number_of_edges())/float(N*(N-1))
+		B=nx.to_numpy_matrix(A[l],weight='weight')
+		E=np.sum(B)
+		print 'E[',l,']=',E," density=",100*float(E)/float(N*(N-1))
 
 def out_graph(folder,A):
 	L=len(A)
