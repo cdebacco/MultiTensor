@@ -4,6 +4,7 @@
 # -----------------------------------------------------------------
 import networkx as nx                                            
 import os
+import numpy as np
 
 def remove_zero_entries_v(A):
 	"INPUT:  Multilayer graph A"
