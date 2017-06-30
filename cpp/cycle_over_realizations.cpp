@@ -26,11 +26,11 @@ void cycle_over_realizations(int N_real,double err, double inf,int initializatio
 
         check_for_convergence(A,it,l2,tolerance,coincide,decision,convergence,u,v,w);
       }  // end while   
-
       cout<<"r="<<r<<" final Likelihood= "<<l2<<" iterations:"<<it<<endl;  // over the all realizations
       
       update_optimal_parameters(maxL,l2,u_f,v_f,u,v,w_f,w);
       cout<<"MaxL= "<<maxL<<endl;
+
     } // end cycle over realizations
 
     maxL=(int)Likelihood(u_f,v_f,w_f,A); 
@@ -65,6 +65,7 @@ void cycle_over_realizations(int N_real,double err, double inf,int initializatio
 
       cout<<"r="<<r<<" final Likelihood= "<<l2<<" iterations:"<<it<<endl;  // over the all realizations
       update_optimal_parameters(maxL,l2,u_f,v_f,u,v,w_f,w);
+
 
     } // end cycle over realizations
 

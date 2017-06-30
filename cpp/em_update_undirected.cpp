@@ -258,10 +258,11 @@ double update_u(double err_max, vector<Graph_undirected> & A, vector< vector<dou
       int i=u_list[z];  
       u[i][k]=calculate_uik(err_max,A,i,k,Z_u,u_old,w_old);
       dist_u=std::max(abs(u[i][k]-u_old[i][k]),dist_u); // calculate max difference btw u_lod and new u membership 
-      u_old[i][k]= u[i][k];  // update so that it will appear correctly in the normalization Zij_a
+      // u_old[i][k]= u[i][k];  // update so that it will appear correctly in the normalization Zij_a
       } // cycle over i --------------------------------------------------
     }
   }  // end cycle over k --------------------------------------------------
+  for(int i=0;i<u.size();i++)for(int k=0;k<K;k++)u_old[i][k]= u[i][k];
   return dist_u;
 }
 
@@ -300,10 +301,12 @@ double update_w(double err_max,vector<Graph_undirected> & A,vector< vector<doubl
         w[k][a]=calculate_wka(a,k,err_max,A,Z_k,u,w_old);
         if(w[k][a]<err_max)w[k][a]=0.;
         dist_w=std::max(abs(w[k][a]-w_old[k][a]),dist_w); // Update max distance old vs new w_kq
-        w_old[k][a]=w[k][a];
+        // w_old[k][a]=w[k][a];
       } // cycle over a --------------------------------------------------
     } 
   }  // end cycle over k --------------------------------------------------
+  for(int k=0;k<K;k++)for(int q=0;q<K;q++)for(int a=0;a<L;a++)w_old[k][a]=w[k][a];
+
   return dist_w;
 }
 

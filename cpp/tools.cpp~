@@ -24,7 +24,7 @@ void randomize_w(vector<vector< vector<double> > > & w) {
 	int K=(int)w.size();	
   for(int i=0;i<L;i++)for(int k=0; k<K; k++ )for(int q=k; q<K; q++ ){
     if(q==k)w[k][q][i]=real01();  // for better convergence
-    else w[k][q][i]=w[q][k][i]=err*real01();
+    else w[k][q][i]=w[q][k][i]=real01();
   }
 }
 
@@ -222,7 +222,7 @@ void initialize(int initialization,  vector<int> u_list,  vector<int> v_list,vec
 
 }
 
-void initialize_undirected(int initialization,  vector<int> u_list, vector< vector<double> > & u,vector< vector< vector<double> > > & w, string file, string w_file,vector<Graph> A){
+void initialize_undirected(int initialization,  vector<int> u_list, vector< vector<double> > & u,vector< vector< vector<double> > > & w, string file, string w_file,vector<Graph_undirected> A){
   
   int K=(int)w.size();  // number of communities
 
@@ -512,12 +512,10 @@ void update_old_variables(  vector< vector<double> > & u_old,  vector< vector<do
     for(int k=0;k<K;k++)for(int q=0;q<K;q++)for(int a=0;a<L;a++)w_old[k][q][a]=w[k][q][a];  
 }
 
-void update_old_variables_undirected(  vector< vector<double> > & u_old,  vector< vector<double> > & v_old,  vector< vector<double> > u,  vector< vector<double> > v,  vector< vector< vector<double> > > & w_old,  vector< vector< vector<double> > > w, vector<int> u_list,vector<int> v_list){
+void update_old_variables_undirected(  vector< vector<double> > & u_old,  vector< vector<double> > u,  vector< vector< vector<double> > > & w_old,  vector< vector< vector<double> > > w, vector<int> u_list){
     int K=(int) w.size();
     int L=(int) w[0][0].size();
-    int v_length=(int)v_list.size();
     int u_length=(int)u_list.size();
-    for(int i=0;i<v_length;i++)for(int k=0;k<K;k++) v_old[v_list[i]][k]=v[v_list[i]][k]; 
     for(int i=0;i<u_length;i++)for(int k=0;k<K;k++) u_old[u_list[i]][k]=u[u_list[i]][k]; 
     for(int k=0;k<K;k++)for(int q=0;q<K;q++)for(int a=0;a<L;a++)w_old[k][q][a]=w[k][q][a];  
 }

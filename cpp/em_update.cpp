@@ -307,10 +307,12 @@ double update_u(double err_max, vector<Graph> & A, vector< vector<double> > & u,
       int i=u_list[z];  
       u[i][k]=calculate_uik(err_max,A,i,k,Z_u,u_old,v_old,w_old);
       dist_u=std::max(abs(u[i][k]-u_old[i][k]),dist_u); // calculate max difference btw u_lod and new u membership 
-      u_old[i][k]= u[i][k];  // update so that it will appear correctly in the normalization Zij_a
+      // u_old[i][k]= u[i][k];  // update so that it will appear correctly in the normalization Zij_a
       } // cycle over i --------------------------------------------------
     }
   }  // end cycle over k --------------------------------------------------
+  for(int i=0;i<u.size();i++)for(int k=0;k<K;k++)u_old[i][k]= u[i][k];
+
   return dist_u;
 }
 
@@ -349,10 +351,11 @@ double update_v(double err_max, vector<Graph> & A, vector< vector<double> > & v,
       int i=v_list[z];  
       v[i][k]=calculate_vik(err_max,A,i,k,Z_v,u,v_old,w_old);
       dist_v=std::max(abs(v[i][k]-v_old[i][k]),dist_v); // calculate max difference btw u_lod and new u membership 
-      v_old[i][k]= v[i][k];  // update so that it will appear correctly in the normalization Zij_a
+      // v_old[i][k]= v[i][k];  // update so that it will appear correctly in the normalization Zij_a
       } // cycle over i --------------------------------------------------
     }
   }  // end cycle over k --------------------------------------------------
+  for(int i=0;i<v.size();i++)for(int k=0;k<K;k++)v_old[i][k]= v[i][k];
   return dist_v;
 }
 
@@ -390,10 +393,11 @@ double update_w(double err_max,vector<Graph> & A,vector< vector<double> > & w,ve
         w[k][a]=calculate_wka(a,k,err_max,A,Z_k,u,v,w_old);
         if(w[k][a]<err_max)w[k][a]=0.;
         dist_w=std::max(abs(w[k][a]-w_old[k][a]),dist_w); // Update max distance old vs new w_kq
-        w_old[k][a]=w[k][a];
+        // w_old[k][a]=w[k][a];
       } // cycle over a --------------------------------------------------
     } 
   }  // end cycle over k --------------------------------------------------
+  for(int k=0;k<K;k++)for(int q=0;q<K;q++)for(int a=0;a<L;a++)w_old[k][a]=w[k][a];
   return dist_w;
 }
 

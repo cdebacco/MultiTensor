@@ -187,13 +187,19 @@ double Likelihood(vector< vector<double> > & u, vector< vector<double> > & v,vec
   for(int a=0;a<L;a++){
     for(int i=0;i<N;i++){
       for(int j=0;j<N;j++){
-		double log_arg=0.;
+		    double log_arg=0.;
         for(int k=0;k<K;k++){
-	    double uvw=u[i][k]*v[j][k]*w[k][a];
-	    l-=uvw;   // Add this term regardeles of the value of A_ijk
-	    if(edge(i, j, A[a]).second)log_arg+=uvw;  // if edge exists, consider this term inside the log argument
-	  }// end cycle over k and q
-	  if(log_arg>0.)l+=log(log_arg);
+	       double uvw=u[i][k]*v[j][k]*w[k][a];
+	       l-=uvw;   // Add this term regardeles of the value of A_ijk
+	       if(edge(i, j, A[a]).second)log_arg+=uvw;  // if edge exists, consider this term inside the log argument
+	       }// end cycle over k and q
+	       if(log_arg>0.){
+          int c=0;  // count parallel edges
+          edge_iterator eit, eend;   // Cycle over out-neighbors of i in layer a,  --> count parallel edges
+          for (tie(eit, eend) = out_edges(i,A[a]); eit != eend; ++eit)if(target(*eit,A[a])==j)c++;
+          l+=c*log(log_arg);
+         } // end cycle to count parallel edges
+
       }// end cycle over j      
     }// end cycle over i
   }// end cycle over a

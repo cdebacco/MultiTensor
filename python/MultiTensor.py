@@ -229,9 +229,9 @@ class MultiTensor :
 
 
 	def _update_optimal_parameters(self):
-		self.u_f=self.u;				
-		self.v_f=self.v;				
-		self.w_f=self.w;	
+		self.u_f=np.copy(self.u)
+		self.v_f=np.copy(self.v)
+		self.w_f=np.copy(self.w)	
 
 	def output_results(self,maxL,nodes):
 		" Output results after convergence "
@@ -449,7 +449,7 @@ class MultiTensor :
 		return it,l2,coincide,convergence	
 
 	def cycle_over_realizations(self,A,B,u_list,v_list):
-		maxL=-self.inf
+		maxL=-1000000000;
 		nodes=A[0].nodes()
 
 		for r in range(self.N_real):
@@ -462,7 +462,8 @@ class MultiTensor :
 			coincide=0
 			convergence=False
 			it=0
-			l2=self.inf	
+			l2=self.inf
+			#maxL=self.inf
 			delta_u=delta_v=delta_w=self.inf
 
 			print "Updating r=",r," ..."
@@ -474,7 +475,7 @@ class MultiTensor :
 
 				it,l2,coincide,convergence=self._check_for_convergence(B,it,l2,coincide,convergence)
 			print "r=",r," Likelihood=",l2," iterations=",it,' time=',time.clock()-tic,'s';
-			if(l2>maxL): 
+			if(maxL<l2): 
 				self._update_optimal_parameters()
 				maxL=l2
 			self.rseed+=1	
