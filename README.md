@@ -1,6 +1,12 @@
 # MultiTensor
 Multilayer network tensor factorization, for community detection, link prediction and measure layer interdependence.
 
+Implements the algorithm described in:
+
+De Bacco, C., Power, E. A., Larremore, D. B., & Moore, C. (2017). *Community detection, link prediction, and layer interdependence in multilayer networks.* Physical Review E, 95(4), 042317.
+
+If you use this code please cite this article.
+
 Copyright (c) 2016 Caterina De Bacco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
