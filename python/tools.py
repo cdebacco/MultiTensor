@@ -50,7 +50,7 @@ def idx(i,A):
 	" Adds node i to all layers"
 	" returns node index "
 	L=len(A)
-	if(i not in list(A[0].nodes()):
+	if(i not in list(A[0].nodes())):
 		for l in range(L):A[l].add_node(i)
 	
 	#return A[0].nodes().index(i)
@@ -76,12 +76,13 @@ def read_graph(folder,adjacency_file,A):
 	   			if(is_edge>0):A[l].add_edge(v1, v2, weight=is_edge)
 	infile.close()   			
 
-def print_graph_stat(A):
+def print_graph_stat(A, undirected=False):
 	L=len(A);N=A[0].number_of_nodes()
 	print "N=",N
 	for l in range(L):
 		B=nx.to_numpy_matrix(A[l],weight='weight')
-		E=np.sum(B)
+		if undirected==False: E=np.sum(B)
+		else:E=0.5*np.sum(B)
 		print 'E[',l,']=',E," density=",100*float(E)/float(N*(N-1))
 
 def out_graph(folder,A):

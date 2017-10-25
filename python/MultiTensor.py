@@ -483,6 +483,6 @@ class MultiTensor :
 	
 		print "Final Likelihood=",maxL
 
-		self.output_results(maxL,A[0].nodes())	
+		self.output_results(maxL,nodes)	
 				
 	

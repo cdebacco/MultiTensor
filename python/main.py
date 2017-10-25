@@ -35,7 +35,7 @@ def main():
 	tl.read_graph(folder,args.adj,A)
 	print "Undirected=",bool(args.undirected)
 	print "Assortative=",bool(args.assortative)
-	tl.print_graph_stat(A)
+	tl.print_graph_stat(A,args.undirected)
 
 	if(args.out_adjacency):tl.out_graph(folder,A)
 
