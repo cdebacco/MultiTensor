@@ -450,7 +450,7 @@ class MultiTensor :
 
 	def cycle_over_realizations(self,A,B,u_list,v_list):
 		maxL=-1000000000;
-		nodes=A[0].nodes()
+		nodes=list(A[0].nodes())
 
 		for r in range(self.N_real):
 				

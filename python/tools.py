@@ -11,11 +11,12 @@ def remove_zero_entries_v(A):
 	"OUTPUT: list with INT INDECES of nodes having zero total in_degree over the all layers "
 	L=len(A)  # number of layers
 	zero_in=[]
-	for i in A[0].nodes():  # cycle over nodes
+	nodes=list(A[0].nodes())
+	for i in nodes :  # cycle over nodes
 		k=0 
 		for l in range(L):
 			if(type(A[l].in_degree(i))!=dict):k+=A[l].in_degree(i)	
-		if(k>0):zero_in.append(A[0].nodes().index(i))	
+		if(k>0):zero_in.append(nodes.index(i))	
 	return zero_in	
 
 def remove_zero_entries_u(A):
@@ -23,11 +24,12 @@ def remove_zero_entries_u(A):
 	"OUTPUT: list with INT INDECES of nodes having zero total out_degree over the all layers "
 	L=len(A)  # number of layers
 	zero_out=[]
-	for i in A[0].nodes():  # cycle over nodes
+	nodes=list(A[0].nodes())
+	for i in nodes:  # cycle over nodes
 		k=0 
 		for l in range(L):
 			if(type(A[l].out_degree(i))!=dict):k+=A[l].out_degree(i)
-		if(k>0):zero_out.append(A[0].nodes().index(i))	
+		if(k>0):zero_out.append(nodes.index(i))	
 	return zero_out
 
 def remove_zero_entries_undirected(A):
@@ -35,19 +37,20 @@ def remove_zero_entries_undirected(A):
 	"OUTPUT: list with INT INDECES of nodes having zero total degree over the all layers "
 	L=len(A)  # number of layers
 	zero_in=[]
-	for i in A[0].nodes():  # cycle over nodes
+	nodes=list(A[0].nodes())
+	for i in nodes:  # cycle over nodes
 		k=0 
 		for l in range(L):
 			if(type(A[l].degree(i))!=dict):k+=A[l].degree(i)
 			
-		if(k>0):zero_in.append(A[0].nodes().index(i))	
+		if(k>0):zero_in.append(nodes.index(i))	
 	return zero_in	
 
 def idx(i,A):
 	" Adds node i to all layers"
 	" returns node index "
 	L=len(A)
-	if(i not in A[0].nodes()):
+	if(i not in list(A[0].nodes()):
 		for l in range(L):A[l].add_node(i)
 	
 	#return A[0].nodes().index(i)
