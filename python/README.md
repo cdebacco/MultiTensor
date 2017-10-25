@@ -33,7 +33,7 @@ Just run it!
 ## How to run run the code:
 Type in the command line the name of the binary file (the same you used assigned to BIN) + all the command line options you want to use. Example:
 
-`python main.py -k=2 -l=3 -a="adjacency.dat" -E="_endfile.dat" `
+`python main.py -k=2 -l=4 -a="adjacency.dat" -E="_endfile.dat" `
 
 As an example type on the command line:
 
