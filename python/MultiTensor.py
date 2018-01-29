@@ -409,7 +409,12 @@ class MultiTensor :
 	def _update_em(self,B):
 
 		d_u=self._update_U(B)
-		d_v=self._update_V(B)
+		if(self.undirected==True):
+			self.v=self.u
+			self.v_old=self.v
+			d_v=d_u
+		else:	
+			d_v=self._update_V(B)
 		d_w=self._update_W(B)
 
 		return d_u,d_v,d_w
