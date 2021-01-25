@@ -3,7 +3,8 @@
 *.lo
 *.o
 *.obj
-
+*.pyc
+*DS_*
 # Precompiled Headers
 *.gch
 *.pch
