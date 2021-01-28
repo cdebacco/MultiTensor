@@ -13,9 +13,9 @@ If you use this code please cite [[1]](https://journals.aps.org/pre/abstract/10.
 A _preprint_ version can be found [here](http://cdebacco.com/files/multitensor.pdf) or [here](https://arxiv.org/abs/1701.01369).
 
 If you are further interested in MultiTensor **extensions**:
-  - incorporating **node attributes**, we have implemented [`MTCOV`](https://github.com/mcontisc/MTCOV).  
+  - incorporating **node attributes**, we have implemented [`MTCOV`](https://github.com/mcontisc/MTCOV):  
   [[2]](https://www.nature.com/articles/s41598-020-72626-y) Contisciani M., Power E. & De Bacco C. (2020). _Community detection with node attributes in multilayer networks_, Scientific Reports 10, 15736 (2020).
-  - incorporating **reciprocity**,  we have implemented [`CRep`](https://github.com/mcontisc/CRep).   
+  - incorporating **reciprocity**,  we have implemented [`CRep`](https://github.com/mcontisc/CRep):  
   [[3]](https://arxiv.org/abs/2012.08215) Safdari H., Contisciani M. & De Bacco C. (2020). _A generative model for reciprocity and community detection in networks_, arXiv:2012.08215.
 
 Copyright (c) 2016 [Caterina De Bacco](http://cdebacco.com/).
