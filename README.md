@@ -15,7 +15,7 @@ A _preprint_ version can be found [here](http://cdebacco.com/files/multitensor.p
 If you are further interested in MultiTensor **extensions**:
   - [`MTCOV`](https://github.com/mcontisc/MTCOV): for incorporating **node attributes**  
   [[2]](https://www.nature.com/articles/s41598-020-72626-y) Contisciani M., Power E. & De Bacco C. (2020). _Community detection with node attributes in multilayer networks_, Scientific Reports 10, 15736 (2020).
-  - [`CRep`](https://github.com/mcontisc/CRep): for incorporating **reciprocity** 
+  - [`CRep`](https://github.com/mcontisc/CRep): for incorporating **reciprocity**   
   [[3]](https://arxiv.org/abs/2012.08215) Safdari H., Contisciani M. & De Bacco C. (2020). _A generative model for reciprocity and community detection in networks_, arXiv:2012.08215.
 
 Copyright (c) 2016 [Caterina De Bacco](http://cdebacco.com/).
